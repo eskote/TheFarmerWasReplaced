@@ -11,6 +11,8 @@ def grow(type):
 				replant(type)
 			else:
 				replant(type)
+		
+		# If ground type is not Soil, then till
 		if get_ground_type() != Grounds.Soil:
 			till()
 			plant(type)
