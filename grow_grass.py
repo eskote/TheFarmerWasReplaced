@@ -46,9 +46,9 @@ while num_items(Items.Hay) < 500000000:
 			
 			# Determine if pumkin_row
 			if y % (get_world_size() / 2) == 0 and planted == False:
-				pumkin_row = True
+				pumpkin_row = True
 			else:
-				pumkin_row= False
+				pumpkin_row= False
 			
 			# Determine if sunflower_row
 			if y % (get_world_size() / 4) == 0:
@@ -57,7 +57,7 @@ while num_items(Items.Hay) < 500000000:
 				sunflower_row = False
 			
 			# Plant a pumkin
-			if odd_column == True and pumkin_row == True:
+			if odd_column == True and pumpkin_row == True:
 				if get_ground_type() != Grounds.Soil:
 					till()
 				if can_harvest():
