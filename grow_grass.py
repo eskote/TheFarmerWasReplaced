@@ -44,20 +44,34 @@ while num_items(Items.Hay) < 500000000:
 			else:
 				odd_column = False
 			
-			# Determine if odd row
-			if y % (get_world_size() / 4) == 0:
-				odd_row = True
+			# Determine if pumkin_row
+			if y % (get_world_size() / 2) == 0 and planted == False:
+				pumkin_row = True
 			else:
-				odd_row = False
+				pumkin_row= False
+			
+			# Determine if sunflower_row
+			if y % (get_world_size() / 4) == 0:
+				sunflower_row = True
+			else:
+				sunflower_row = False
+			
+			# Plant a pumkin
+			if odd_column == True and pumkin_row == True:
+				if get_ground_type() != Grounds.Soil:
+					till()
+				if can_harvest():
+					harvest()
+				plant(Entities.Pumpkin)
 			
 			# Plant a Sunflower
-			if odd_column == True and odd_row == True:
+			if odd_column == False and sunflower_row == True:
 				if get_ground_type() != Grounds.Soil:
 					till()
 				if can_harvest():
 					harvest()
 				plant(Entities.Sunflower)
-			
+				
 			# Runs only if planted == False
 			if planted == False:
 				if can_harvest():
